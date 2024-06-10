@@ -1,3 +1,41 @@
+DELIMITER $$
+
+CREATE TRIGGER T_Insert AFTER INSERT ON viagem
+FOR EACH ROW
+BEGIN
+    UPDATE onibus o 
+    SET o.lugares = o.lugares - 1 
+    WHERE o.id = NEW.id_onibus;
+END$$
+
+CREATE TRIGGER T_Delete AFTER DELETE ON viagem
+FOR EACH ROW
+BEGIN
+    UPDATE onibus o 
+    SET o.lugares = o.lugares + 1 
+    WHERE o.id = OLD.id_onibus;
+END$$
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1)
 
 CREATE TABLE onibus (
