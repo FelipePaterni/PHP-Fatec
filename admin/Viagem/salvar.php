@@ -12,14 +12,14 @@
                     Data da Viagem
                 </label>
                 <div class="col-sm-12">
-                    <input type="text" class="form-control" id="txtnome" name="txtdata" placeholder="dia/mês/ano" maxlength="10" minlength="8" />
+                    <input type="text" class="form-control" id="data" name="data" placeholder="dia/mês/ano" maxlength="10" minlength="8" />
                 </div>
             </div>
 
             <?php
             include_once '../class/Passageiro.php';
             $e = new Passageiro();
-            $dadosEquipe = $e->listar();
+            $dadosEquipe = $e->lista_list(null);
             ?>
 
             <div class="form-group">
@@ -43,7 +43,7 @@
             <?php
             include_once '../class/Onibus.php';
             $e = new Onibus();
-            $dadosEquipe = $e->listar();
+            $dadosEquipe = $e->lista_list(null);
             ?>
 
             <div class="form-group">
@@ -74,19 +74,22 @@
 </div>
 <?php
 if (filter_input(INPUT_POST, 'btnsalvar')) {
-    $passageiro = filter_input(INPUT_POST, 'selepassa');
-    $onibus = filter_input(INPUT_POST, 'seleonibus');
+    $passageiro = filter_input(INPUT_POST, 'selep');
+    $onibus = filter_input(INPUT_POST, 'seleo');
+    $data = filter_input(INPUT_POST, 'data');
 
     include_once '../class/Viagem.php';
     $vi = new Viagem();
 
     $vi->setId_passageiro($passageiro);
     $vi->setId_onibus($onibus);
+    $vi->setData_viagem($data);
 
     echo '<div class="alert alert-primary mt-3" role="alert">'
         //. $cat->salvar()
         . $vi->crud(0)
         . '</div>';
 
-    echo '<meta http-equiv="refresh" content="0.1;URL=?p=viagem/listar">';
+    
 }
+ 

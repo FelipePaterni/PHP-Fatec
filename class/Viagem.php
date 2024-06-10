@@ -37,8 +37,9 @@ DELIMITER &&
     END
 &&
 
+ 
  CREATE VIEW view_viagem AS
-  select p.nome, o.modelo , o.destino,v.data_viagem
+  select v.id,p.nome, o.modelo , o.destino,v.data_viagem
   FROM viagem v
   INNER JOIN passageiro p
   on p.id = v.id_passageiro

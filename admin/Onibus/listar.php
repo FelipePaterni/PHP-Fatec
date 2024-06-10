@@ -6,8 +6,7 @@
         <tr>
             <th scope="col">Modelo</th>
             <th scope="col">Lugares Disponiveis</th>
-            <th scope="col">Destino</th>
-            <th scope="col">Data da proxima viagem</th>
+            <th scope="col">Destino</th>           
             <th>Opções</th>
         </tr>
     </thead>
@@ -15,7 +14,7 @@
         <?php
         include_once '../class/Onibus.php';
         $on = new Onibus();
-        $dados = $on->listar();
+        $dados = $on->lista_list(null);
 
         if (!empty($dados)) {
             foreach ($dados as $mostrar) {
@@ -23,8 +22,7 @@
                 <tr>
                     <td><?= $mostrar["modelo"] ?></td>
                     <td><?= $mostrar["lugares"] ?></td>
-                    <td><?= $mostrar["destino"] ?></td>
-                    <td><?= $mostrar["data_viagem"] == null ? "Sem viagem marcada" :  $mostrar["data_viagem"] ?></td>
+                    <td><?= $mostrar["destino"] ?></td>                
                     <td>
                         <a href="" class="btn btn-primary" title="editar registro">
                             <i class="bi bi-pencil-square"></i>

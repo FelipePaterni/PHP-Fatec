@@ -29,7 +29,7 @@
                         <a href="" class="btn btn-primary" title="editar registro">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="" class="btn btn-danger" data-confirm="Excluir registro?" title="excluir registro">
+                        <a href="?p=viagem/excluir&id=<?= $mostrar['id'] ?>" class="btn btn-danger" data-confirm="Excluir registro?" title="excluir registro">
                             <i class="bi bi-trash"></i>
                         </a>
                     </td>

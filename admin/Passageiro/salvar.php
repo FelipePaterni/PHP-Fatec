@@ -34,7 +34,9 @@
         </form>
     </div>
 </div>
+
 <?php
+
 if (filter_input(INPUT_POST, 'btnsalvar')) {
     $nome = filter_input(INPUT_POST, 'txtnome');
     $data = filter_input(INPUT_POST, "txtdata");
@@ -52,5 +54,5 @@ if (filter_input(INPUT_POST, 'btnsalvar')) {
         . $pa->crud(0)
         . '</div>';
 
-    echo '<meta http-equiv="refresh" content="0.1;URL=?p=passageiro/listar">';
+    echo '<meta http-equiv="refresh" content="5;URL=?p=passageiro/listar">';
 }

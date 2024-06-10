@@ -34,7 +34,7 @@ DELIMITER &&
 &&
 
  CREATE VIEW view_passageiro AS
-  select p.nome,p.data_nascimento,v.data_viagem
+  select p.id,p.nome,p.data_nascimento,v.data_viagem
   FROM passageiro p
   LEFT JOIN viagem v
   on p.id = v.id_passageiro;

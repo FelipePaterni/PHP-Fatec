@@ -16,8 +16,6 @@
                 </div>
             </div>
 
-
-
             <div class="form-group">
                 <label for="inputText" class="col-sm-2 col-form-label">
                     Destino
@@ -55,5 +53,5 @@ if (filter_input(INPUT_POST, 'btnsalvar')) {
         . $pa->crud(0)
         . '</div>';
 
-    echo '<meta http-equiv="refresh" content="0.1;URL=?p=onibus/listar">';
+    echo '<meta http-equiv="refresh" content="5;URL=?p=onibus/listar">';
 }

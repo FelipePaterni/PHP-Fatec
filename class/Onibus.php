@@ -36,8 +36,8 @@ DELIMITER &&
     END
 &&
 
- CREATE VIEW view_onibus AS
-  select o.modelo ,o.lugares, o.destino,v.data_viagem
+  CREATE VIEW view_onibus AS
+  select o.id, o.modelo ,o.lugares, o.destino,v.data_viagem
   FROM onibus o
   LEFT JOIN viagem v
   on o.id = v.id_onibus;
