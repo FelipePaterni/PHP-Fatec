@@ -43,42 +43,50 @@ DELIMITER &&
 
 include_once 'Conectar.php';
 
-class Passageiro {
+class Passageiro
+{
 
     private $id;
     private $nome;
     private $data_nascimento;
-    
+
     private $con;
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getNome() {
+    public function getNome()
+    {
         return $this->nome;
     }
 
-    public function getData_nascimento() {
+    public function getData_nascimento()
+    {
         return $this->data_nascimento;
     }
 
 
-    public function setId($id): void {
+    public function setId($id): void
+    {
         $this->id = $id;
     }
 
-    public function setNome($nome): void {
+    public function setNome($nome): void
+    {
         $this->nome = $nome;
     }
 
-    public function setEstoque($data_nascimento): void {
+    public function setData_nascimento($data_nascimento): void
+    {
         $this->data_nascimento = $data_nascimento;
     }
 
- 
 
-    public function lista_list($id) {
+
+    public function lista_list($id)
+    {
         try {
             $this->con = new Conectar();
             $sql = "CALL listar_passageiro (?)";
@@ -89,7 +97,8 @@ class Passageiro {
             echo "Erro de bd " . $e->getMessage();
         }
     }
-    public function listar() {
+    public function listar()
+    {
         try {
             $this->con = new Conectar();
             $sql = "SELECT * FROM view_passageiro";
@@ -100,9 +109,10 @@ class Passageiro {
         }
     }
 
-    
 
-    public function crud($opcao) {
+
+    public function crud($opcao)
+    {
         try {
             $this->con = new Conectar();
             $sql = "CALL crud_passageiro(?, ?, ?, ?)";
@@ -117,7 +127,7 @@ class Passageiro {
         }
     }
 
-//fim do crud
+    //fim do crud
 }
 
 //fim da class

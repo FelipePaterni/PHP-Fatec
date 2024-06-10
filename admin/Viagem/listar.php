@@ -1,26 +1,30 @@
-<h3>Lista de equipes e alunos</h3>
-<a class="btn btn-outline-primary float-right" href="?p=equipe_aluno/salvar">Add</a>
+<h3>Lista de viagens</h3>
+<a class="btn btn-outline-primary float-right" href="?p=viagem/salvar">Add</a>
 <br><br>
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Equipe</th>
-            <th scope="col">Aluno</th>
+            <th scope="col">Data da viagem</th>
+            <th scope="col">Passageiros</th>
+            <th scope="col">Onibus</th>
+            <th scope="col">Destino</th>
             <th>Opções</th>
         </tr>
     </thead>
     <tbody>
         <?php
-        include_once '../class/EquipeAluno.php';
-        $ea = new EquipeAluno();
-        $dados = $ea->listar();
+        include_once '../class/Viagem.php';
+        $vi = new Viagem();
+        $dados = $vi->listar();
 
         if (!empty($dados)) {
             foreach ($dados as $mostrar) {
-                ?>
+        ?>
                 <tr>
-                    <td><?= $mostrar[0] ?></td>
-                    <td><?= $mostrar[1] ?></td>
+                    <td><?= $mostrar["data_viagem"] ?></td>
+                    <td><?= $mostrar["nome"] ?></td>
+                    <td><?= $mostrar["modelo"] ?></td>
+                    <td><?= $mostrar["destino"] ?></td>
                     <td>
                         <a href="" class="btn btn-primary" title="editar registro">
                             <i class="bi bi-pencil-square"></i>
@@ -29,8 +33,8 @@
                             <i class="bi bi-trash"></i>
                         </a>
                     </td>
-                </tr> 
-                <?php
+                </tr>
+        <?php
             }
         }
         ?>
